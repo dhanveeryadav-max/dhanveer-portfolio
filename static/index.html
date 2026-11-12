@@ -18,7 +18,9 @@ body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system
 a{color:inherit;text-decoration:none}h1,h2,h3{font-family:Sora,Inter,system-ui,sans-serif;margin:0}
 .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
 .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none}.brand-logo{width:80px;height:80px;object-fit:contain}.brand-name{font-size:24px;font-weight:700;color:#ffffff}
+.projects-disclaimer{text-align:center;font-size:14px;color:#aab3c5;margin:0 auto 25px;max-width:850px;line-height:1.7}.projects-disclaimer strong{color:#fff}.projects-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.projects-gallery img{width:100%;height:240px;object-fit:cover;border-radius:12px}
 body::before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(60% 50% at 85% -5%,rgba(64,118,230,.36),transparent 70%),radial-gradient(50% 45% at 0% 40%,rgba(94,234,212,.13),transparent 70%),radial-gradient(55% 50% at 100% 85%,rgba(155,140,255,.18),transparent 70%),linear-gradient(180deg,#0a1126,#060914 60%)}
+@media(max-width:768px){.projects-gallery{grid-template-columns:1fr}.projects-gallery img{height:220px}}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(rgba(190,210,255,.17) 1px,transparent 1px) 0 0/30px 30px;-webkit-mask-image:radial-gradient(ellipse at 50% 15%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 50% 15%,#000,transparent 72%)}
 .aur{position:fixed;z-index:-2;pointer-events:none;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;filter:blur(90px);animation:drift 24s ease-in-out infinite alternate}
 .aur.a{top:-12%;right:-8%;background:#3d6df0;opacity:.34}.aur.b{bottom:-15%;left:-12%;background:#1fbfae;opacity:.18;animation-direction:alternate-reverse}
@@ -155,7 +157,17 @@ h1{font-size:clamp(40px,5.8vw,68px);line-height:1.05;letter-spacing:-.05em;margi
 <article class="g pr rv"><div class="shot"><img loading="lazy" src="images/website.jpg" data-fallbacks="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.anandcontrol.in%2F?w=1200&h=750|https://image.thum.io/get/width/1200/crop/750/https://www.anandcontrol.in/" alt="Screenshot of Anand Systems Engineering website" onerror="imgFallback(this)"></div><div class="pb"><div class="top2"><span class="tag">Business website</span><span class="live">Live</span></div><h3>Anand Systems Engineering</h3><p>An industrial product website I recently developed, presenting EOT crane components, product categories, technical information and AI solutions.</p><div class="role"><b>Recent project developed</b> </div><a class="lnk" href="https://www.anandcontrol.in/" target="_blank" rel="noopener">Visit website ↗</a></div></article>
 <article class="g pr rv"><div class="shot"><img loading="lazy" src="images/detection-img.jpeg" data-fallbacks="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.anandims.in%2Fanandcraneai%2F?w=1200&h=750|https://image.thum.io/get/width/1200/crop/750/" alt="Crane AI Monitoring project" onerror="imgFallback(this)"><svg class="ov" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect class="b" x="26" y="22" width="52" height="82" stroke="#5eead4"/><rect x="26" y="14" width="30" height="8" fill="#5eead4"/><text x="29" y="20">human</text><rect class="b b2" x="104" y="64" width="78" height="36" stroke="#ffd166" stroke-dasharray="4 2"/><rect x="104" y="56" width="48" height="8" fill="#ffd166"/><text x="107" y="62">rail defect</text></svg></div><div class="pb"><div class="top2"><span class="tag">Industrial AI</span><span class="live">Live</span></div><h3>Crane AI Monitoring</h3><p>An AI-based crane safety and monitoring system I recently developed, including human detection and rail-track defect detection.</p><div class="role">Recent project developed</div><a class="lnk" href=" " target="_blank" rel="noopener">Open AI project ↗</a></div></article>
 </div>
-<div class="note rv"><strong>About these projects:</strong> These are recent projects developed by me. Company names, logos and brands shown belong to their respective owners.</div>
+<div class="projects-disclaimer">
+    <strong>About These Projects:</strong>
+    These are recent projects designed and developed by me.
+    Company names, logos, and brands shown belong to their respective owners.
+</div>
+
+<div class="projects-gallery">
+    <img src="images/restaurant-img.png" alt="Restaurant Website">
+    <img src="images/shopping-mall-img.png" alt="Shopping Website">
+    <img src="images/salon-img.png" alt="Salon Website">
+</div>
 </div></section>
 
 <section class="sec" id="process"><div class="wrap">
