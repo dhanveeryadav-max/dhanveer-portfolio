@@ -1,188 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#070b16" />
-  <title>Dhanveer Yadav — Software Development Partner</title>
-  <meta name="description" content="Portfolio of Dhanveer Yadav — web, Python and AI/YOLO development." />
-  <style>
-   /* ---- hero card: full photo as background ---- */
-.hero-card{min-height:540px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(180deg,rgba(7,11,22,0) 0%,rgba(7,11,22,.35) 42%,rgba(7,11,22,.94) 100%),url("images/dhanveer-img.jpeg") center top/cover no-repeat,url("https://github.com/dhanveeryadav-max.png?size=600") center top/cover no-repeat,#0e1628}
-.hero-card>*{position:relative;z-index:1}
-.hero-card h2,.hero-card p{text-shadow:0 2px 12px rgba(0,0,0,.6)}
-.hero-card p{color:#d3dcee}
-.hero-card .chip{background:rgba(7,11,22,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
-.hero-card .stat{border-top-color:rgba(190,210,255,.28)}
-@media(max-width:800px){.hero-card{min-height:480px}}
-    /* ---- richer background ---- */
-    body::before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(60% 50% at 85% -5%,rgba(64,118,230,.34),transparent 70%),radial-gradient(50% 45% at 0% 38%,rgba(98,226,210,.13),transparent 70%),radial-gradient(55% 50% at 100% 82%,rgba(124,92,255,.17),transparent 70%),linear-gradient(180deg,#0a1124 0%,#070b16 60%,#060912 100%)}
-    body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(190,210,255,.17) 1px,transparent 1px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse at 50% 18%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 18%,#000 0%,transparent 72%)}
-    .aurora{position:fixed;z-index:-2;pointer-events:none;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;filter:blur(90px)}
-    .aurora.a{top:-12%;right:-8%;background:#3d6df0;opacity:.34;animation:drift 22s ease-in-out infinite alternate}
-    .aurora.b{bottom:-15%;left:-12%;background:#1fbfae;opacity:.18;animation:drift 28s ease-in-out infinite alternate-reverse}
-    @keyframes drift{to{transform:translate3d(-6vw,5vh,0) scale(1.12)}}
-    .service,.project,.step,.availability{background:linear-gradient(145deg,rgba(24,36,64,.66),rgba(13,20,38,.62));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-    .nav{position:relative;z-index:6}
-    /* ---- images ---- */
-    .avatar{width:76px;height:76px;border-radius:22px;overflow:hidden;position:relative;box-shadow:0 0 0 2px rgba(98,226,210,.35),0 10px 30px rgba(0,0,0,.35)}
-    .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .project{padding:12px 12px 22px}
-    .project .pbody{padding:0 12px;display:flex;flex-direction:column;flex:1}
-    .shot{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;margin-bottom:18px;border:1px solid var(--line);background:linear-gradient(135deg,#16254a,#0d1a30)}
-    .shot:before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:rgba(8,13,26,.82);z-index:2;border-bottom:1px solid var(--line)}
-    .shot:after{content:"";position:absolute;left:10px;top:8px;width:6px;height:6px;border-radius:50%;background:#ff6b6b;box-shadow:12px 0 0 #ffd166,24px 0 0 #62e2d2;z-index:3}
-    .shot img{position:absolute;left:0;right:0;top:22px;width:100%;height:calc(100% - 22px);object-fit:cover;object-position:top;transition:transform .5s ease}
-    .project:hover .shot img{transform:scale(1.04)}
-    .shot.profile img{width:auto;left:50%;transform:translateX(-50%);object-fit:contain;padding:14px 0}
-    .project:hover .shot.profile img{transform:translateX(-50%) scale(1.04)}
-    @media(prefers-reduced-motion:reduce){.aurora{animation:none}html{scroll-behavior:auto}.shot img,.project:hover .shot img{transition:none;transform:none}}
-    .role{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
-    .role b{color:var(--cyan);font-weight:700;margin-right:6px}
-    .form{margin-top:18px;padding:26px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,rgba(24,36,64,.66),rgba(13,20,38,.62));display:grid;gap:14px}
-    .form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .form label{display:grid;gap:6px;font-size:13px;color:var(--muted)}
-    .form input,.form textarea{font:inherit;color:var(--text);background:rgba(7,11,22,.7);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
-    .form input:focus,.form textarea:focus{outline:2px solid var(--blue);outline-offset:1px}
-    .form textarea{resize:vertical;min-height:120px}
-    .form .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
-    .form button{justify-self:start;cursor:pointer;border:0}
-    .form button:disabled{opacity:.6;cursor:wait}
-    .form-status{margin:0;font-size:13px;min-height:20px}
-    .form-status.ok{color:var(--cyan)}.form-status.err{color:#ff8a8a}
-    @media(max-width:540px){.form .row{grid-template-columns:1fr}}
-    @media(max-width:800px){.navlinks{display:none;position:absolute;top:76px;left:0;right:0;padding:18px 22px;background:#10182b;border-bottom:1px solid var(--line);flex-direction:column;gap:14px;z-index:5}.navlinks.open{display:flex}.menu-btn{display:block}.navcta{display:none}.hero{grid-template-columns:1fr;padding:70px 0 58px;gap:30px}.section{padding:58px 0}.section-head{display:block}.section-head p{margin-top:12px}.steps{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr;gap:24px}.contact{display:block;padding:28px}.contact .btn{margin-top:20px}}
-    @media(max-width:540px){.wrap{width:min(var(--max),calc(100% - 28px))}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.stats{gap:8px}.stat strong{font-size:16px}.stat span{font-size:10px}.hero{padding-top:56px}.lead{font-size:16px}.footer{display:block}.footer div+div{margin-top:8px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060914">
+<title>Dhanveer Yadav — Web, Python & AI Developer</title>
+<meta name="description" content="Dhanveer Yadav — web, Python and AI/YOLO developer. Live projects, clear process, direct communication.">
+<meta property="og:type" content="website"><meta property="og:title" content="Dhanveer Yadav — Web, Python & AI Developer"><meta property="og:description" content="Live projects, open code on GitHub and a clear working process."><meta property="og:image" content="https://dhanveer-portfolio.onrender.com/images/dhanveer-img.jpeg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235eead4'/%3E%3Ctext x='32' y='44' font-size='36' font-family='Arial' font-weight='900' text-anchor='middle' fill='%23060914'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--bg:#060914;--text:#eef3ff;--muted:#a3b0c7;--line:rgba(190,210,255,.14);--blue:#7aa8ff;--cyan:#5eead4;--vio:#9b8cff;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}h1,h2,h3{font-family:Sora,Inter,system-ui,sans-serif;margin:0}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+body::before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(60% 50% at 85% -5%,rgba(64,118,230,.36),transparent 70%),radial-gradient(50% 45% at 0% 40%,rgba(94,234,212,.13),transparent 70%),radial-gradient(55% 50% at 100% 85%,rgba(155,140,255,.18),transparent 70%),linear-gradient(180deg,#0a1126,#060914 60%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(rgba(190,210,255,.17) 1px,transparent 1px) 0 0/30px 30px;-webkit-mask-image:radial-gradient(ellipse at 50% 15%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 50% 15%,#000,transparent 72%)}
+.aur{position:fixed;z-index:-2;pointer-events:none;width:46vw;height:46vw;max-width:640px;max-height:640px;border-radius:50%;filter:blur(90px);animation:drift 24s ease-in-out infinite alternate}
+.aur.a{top:-12%;right:-8%;background:#3d6df0;opacity:.34}.aur.b{bottom:-15%;left:-12%;background:#1fbfae;opacity:.18;animation-direction:alternate-reverse}
+@keyframes drift{to{transform:translate3d(-6vw,5vh,0) scale(1.12)}}
+.bar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--blue),var(--cyan),var(--vio));z-index:60}
+.top{position:sticky;top:0;z-index:50;transition:.3s}.top.s{background:rgba(6,9,20,.74);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{font:800 20px Sora,sans-serif;letter-spacing:-.04em}.brand span{color:var(--cyan)}
+.links{display:flex;gap:26px;color:var(--muted);font-size:14px}.links a{position:relative;transition:.2s}.links a:hover,.links a.on{color:var(--cyan)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 22px;font-weight:700;font-size:14px;border:1px solid var(--line);color:var(--text);transition:.25s;cursor:pointer}
+.btn.p{border:0;background:linear-gradient(110deg,var(--blue),var(--cyan));color:#06101e}
+.btn.p::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 4s infinite}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(94,234,212,.22)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:8px 11px;font-size:18px}
+.hero{padding:80px 0 60px;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(94,234,212,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(94,234,212,0)}100%{box-shadow:0 0 0 0 rgba(94,234,212,0)}}
+h1{font-size:clamp(40px,5.8vw,68px);line-height:1.05;letter-spacing:-.05em;margin:20px 0}
+.grad{background:linear-gradient(100deg,#fff 5%,#9bbcff 45%,#5eead4 75%,#fff);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:200% center}}
+.lead{max-width:640px;color:var(--muted);font-size:18px;margin:0 0 28px}
+.rot{color:var(--text);font-weight:600;border-bottom:2px solid var(--cyan);display:inline-block;transition:.35s}.rot.o{opacity:0;transform:translateY(8px)}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.card{position:relative;min-height:540px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s;background:linear-gradient(180deg,rgba(6,9,20,0) 0%,rgba(6,9,20,.35) 42%,rgba(6,9,20,.95) 100%),url("images/dhanveer-img.jpeg") center top/cover no-repeat,url("https://github.com/dhanveeryadav-max.png?size=600") center top/cover no-repeat,#0e1628}
+.card>*{position:relative;z-index:1}
+.badge{position:absolute!important;top:18px;left:18px;display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border-radius:999px;background:rgba(6,9,20,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);font-size:12px;font-weight:600}
+.card h2{font-size:26px;text-shadow:0 2px 12px rgba(0,0,0,.6)}.card p{margin:4px 0 0;color:#d3dcee;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.chip{border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:12px;background:rgba(6,9,20,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.mq{border-block:1px solid var(--line);overflow:hidden;padding:14px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.mq div{display:flex;gap:44px;width:max-content;animation:mq 28s linear infinite;color:var(--muted);font:600 14px Sora,sans-serif;white-space:nowrap}.mq i{color:var(--cyan);font-style:normal}
+@keyframes mq{to{transform:translateX(-50%)}}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:34px 0}
+.ti{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--muted)}.ti b{display:block;color:var(--text);font-size:15px}
+.ti span{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(94,234,212,.1);color:var(--cyan);font-size:18px}
+.sec{padding:80px 0;border-top:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:32px}
+.k{color:var(--cyan);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.sec h2{font-size:clamp(28px,4vw,42px);line-height:1.12;letter-spacing:-.04em;margin-top:8px}.head p{max-width:440px;color:var(--muted);margin:0;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.g{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(24,36,64,.66),rgba(13,20,38,.62));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:26px;transition:transform .35s,border-color .35s}
+.g::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:.3s;background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(122,168,255,.18),transparent 60%)}
+.g:hover{transform:translateY(-6px);border-color:rgba(94,234,212,.35)}.g:hover::after{opacity:1}
+.ico{width:44px;height:44px;border-radius:14px;background:rgba(122,168,255,.12);display:grid;place-items:center;color:var(--cyan);font-size:20px;margin-bottom:18px}
+.g h3{font-size:18px;margin-bottom:8px}.g p{margin:0;color:var(--muted);font-size:14px}
+.pr{display:flex;flex-direction:column;padding:12px 12px 22px}.pb{padding:0 12px;display:flex;flex-direction:column;flex:1}
+.shot{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;margin-bottom:18px;border:1px solid var(--line);background:linear-gradient(135deg,#16254a,#0d1a30)}
+.shot::before{content:"";position:absolute;inset:0 0 auto;height:22px;background:rgba(8,13,26,.85);z-index:2;border-bottom:1px solid var(--line)}
+.shot::after{content:"";position:absolute;left:10px;top:8px;width:6px;height:6px;border-radius:50%;background:#ff6b6b;box-shadow:12px 0 0 #ffd166,24px 0 0 #5eead4;z-index:3}
+.shot img{position:absolute;left:0;top:22px;width:100%;height:calc(100% - 22px);object-fit:cover;object-position:top;transition:transform .6s}.pr:hover .shot img{transform:scale(1.06)}
+.shot.pf img{width:auto;left:50%;transform:translateX(-50%);object-fit:contain;padding:14px 0}.pr:hover .shot.pf img{transform:translateX(-50%) scale(1.06)}
+.top2{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);border:1px solid rgba(94,234,212,.28);padding:5px 9px;border-radius:999px}
+.live{display:inline-flex;gap:6px;align-items:center;font-size:11px;color:var(--muted)}.live::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+.role{margin-top:16px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}.role b{color:var(--cyan);margin-right:6px}
+.lnk{margin-top:auto;padding-top:18px;color:#a9c6ff;font-weight:700;font-size:13px;transition:.2s}.lnk:hover{color:var(--cyan);letter-spacing:.02em}
+.note{margin-top:18px;padding:15px 17px;border-left:2px solid var(--cyan);background:rgba(94,234,212,.055);border-radius:0 12px 12px 0;color:var(--muted);font-size:12px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.steps .g{padding:22px}.steps b{display:block;color:var(--cyan);font-size:12px;margin-bottom:12px}.steps h3{font-size:16px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:start}.about p{color:var(--muted)}.textlink{color:var(--cyan);font-weight:600}
+.av{padding:24px;border:1px solid var(--line);border-radius:20px;background:rgba(21,31,53,.65)}.av h3{margin-bottom:10px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-top:1px solid var(--line);font-size:13px}.row span:last-child{color:var(--cyan);font-weight:700}
+.cta{padding:40px;border-radius:28px;border:1px solid rgba(122,168,255,.28);background:radial-gradient(circle at 100% 0%,rgba(94,234,212,.14),transparent 40%),linear-gradient(135deg,#172542,#10182b);display:flex;justify-content:space-between;align-items:center;gap:24px}
+.cta h2{font-size:clamp(26px,4vw,38px);margin:8px 0}.cta p{color:var(--muted);margin:0;max-width:560px;font-size:14px}
+.form{margin-top:18px;padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(24,36,64,.66),rgba(13,20,38,.62));display:grid;gap:14px}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form label{display:grid;gap:6px;font-size:13px;color:var(--muted)}
+.form input,.form textarea{font:inherit;color:var(--text);background:rgba(6,9,20,.7);border:1px solid var(--line);border-radius:12px;padding:13px 14px;width:100%;transition:.2s}
+.form input:focus,.form textarea:focus{outline:0;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(94,234,212,.14)}.form textarea{resize:vertical;min-height:120px}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}.form button{justify-self:start;border:0}.form button:disabled{opacity:.6;cursor:wait}
+.priv{font-size:12px;color:var(--muted);margin:0}.fs{margin:0;font-size:14px;min-height:20px}.fs.ok{color:var(--cyan);animation:pop .5s}.fs.err{color:#ff8a8a}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+.foot{padding:30px 0 40px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line)}.foot a{color:#b8cced}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}.js .rv.in{opacity:1;transform:none}
+.js .hi{animation:up .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}@keyframes up{from{opacity:0;transform:translateY(24px)}}
+@media(max-width:860px){.links{display:none;position:absolute;top:72px;left:0;right:0;padding:18px 22px;background:#0d1426;border-bottom:1px solid var(--line);flex-direction:column;gap:14px}.links.open{display:flex}.menu{display:block}.nav .btn{display:none}
+.hero{grid-template-columns:1fr;padding:56px 0 44px;gap:34px}.card{min-height:480px}.trust,.steps{grid-template-columns:repeat(2,1fr)}.head{display:block}.head p{margin-top:12px}.about{grid-template-columns:1fr;gap:24px}.cta{display:block;padding:28px}.cta .btn{margin-top:20px}.sec{padding:60px 0}}
+@media(max-width:540px){.wrap{width:calc(100% - 28px)}.grid,.trust,.steps,.form .two{grid-template-columns:1fr}.lead{font-size:16px}.foot{display:block}.foot div+div{margin-top:8px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.js .rv,.js .hi{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-  <div class="aurora a"></div><div class="aurora b"></div>
-  <header class="wrap nav">
-    <a class="brand" href="#home">DHANVEER<span>.</span></a>
-    <nav class="navlinks" id="navlinks">
-      <a href="#services">Services</a><a href="#work">Selected work</a><a href="#process">How I work</a><a href="#about">About</a>
-    </nav>
-    <a class="navcta" href="#contact">Discuss a project ↗</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
-  </header>
+<div class="bar"></div><div class="aur a"></div><div class="aur b"></div>
+<header class="top" id="top"><div class="wrap nav">
+<a class="brand" href="#home">DHANVEER<span>.</span></a>
+<nav class="links" id="links"><a href="#services">Services</a><a href="#work">Selected work</a><a href="#process">How I work</a><a href="#about">About</a></nav>
+<a class="btn p" href="#contact">Discuss a project ↗</a><button class="menu" id="menu" aria-label="Menu">☰</button>
+</div></header>
+<main>
+<section class="wrap hero" id="home">
+<div>
+<div class="eyebrow hi"><span class="dot"></span> Open to new projects</div>
+<h1 class="hi" style="--d:.1s">Build better digital products with a <span class="grad">reliable developer.</span></h1>
+<p class="lead hi" style="--d:.2s">I help software agencies and businesses turn requirements into working <span class="rot" id="rot">websites</span>.</p>
+<div class="acts hi" style="--d:.3s"><a class="btn p" href="#contact">Let's discuss your project ↗</a><a class="btn" href="#work">See live projects</a></div>
+</div>
+<aside class="card hi" id="card" style="--d:.25s">
+<span class="badge"><span class="dot"></span> Available for project work</span>
+<h2>Dhanveer Yadav</h2><p>Web · Python · AI / Computer Vision</p>
+<div class="chips"><span class="chip">Website Development</span><span class="chip">Python</span><span class="chip">YOLO &amp; OpenCV</span><span class="chip">Data Labeling</span></div>
+</aside>
+</section>
+<div class="mq" aria-hidden="true"><div><span>Website Development</span><i>✦</i><span>Python</span><i>✦</i><span>YOLO</span><i>✦</i><span>OpenCV</span><i>✦</i><span>Computer Vision</span><i>✦</i><span>Data Labeling</span><i>✦</i><span>Automation</span><i>✦</i><span>Website Development</span><i>✦</i><span>Python</span><i>✦</i><span>YOLO</span><i>✦</i><span>OpenCV</span><i>✦</i><span>Computer Vision</span><i>✦</i><span>Data Labeling</span><i>✦</i><span>Automation</span><i>✦</i></div></div>
+<div class="wrap trust">
+<div class="ti rv"><span>◉</span><div><b>3 live projects</b>Open and verify them yourself</div></div>
+<div class="ti rv"><span>⌥</span><div><b>Open code</b>Public repositories on GitHub</div></div>
+<div class="ti rv"><span>✓</span><div><b>Clear process</b>Scope, milestones, checkpoints</div></div>
+<div class="ti rv"><span>☏</span><div><b>Direct contact</b>You talk to the developer</div></div>
+</div>
 
-  <main>
-    <section class="wrap hero" id="home">
-      <div>
-        <div class="eyebrow"><span class="dot"></span> Independent development partner</div>
-        <h1>Build better digital products with a <span class="gradient">reliable developer.</span></h1>
-        <p class="lead">I help software agencies and businesses turn requirements into working websites, Python applications and AI-powered solutions.</p>
-        <div class="actions"><a class="btn primary" href="#contact">Let's discuss your project ↗</a><a class="btn" href="#work">Explore selected work</a></div>
-      </div>
-      <aside class="hero-card">
-       
-        <p>Web · Python · AI / Computer Vision</p>
-        <div class="chips"><span class="chip">Website Development</span><span class="chip">Python</span><span class="chip">YOLO & OpenCV</span><span class="chip">Data Labeling</span></div>
-        <div class="stats"><div class="stat"><strong>Web</strong><span>Responsive interfaces</span></div><div class="stat"><strong>AI</strong><span>Vision workflows</span></div><div class="stat"><strong>Python</strong><span>Application logic</span></div></div>
-      </aside>
-    </section>
+<section class="sec" id="services"><div class="wrap">
+<div class="head rv"><div><div class="k">What I can help with</div><h2>Development support for your next project.</h2></div><p>Flexible project-based support for agencies and businesses that need an additional development resource.</p></div>
+<div class="grid">
+<article class="g rv"><div class="ico">⌘</div><h3>Website Development</h3><p>Responsive business websites, product pages, landing pages and front-end implementation.</p></article>
+<article class="g rv"><div class="ico">{ }</div><h3>Python Development</h3><p>Python-based applications, automation, dashboards and web application development.</p></article>
+<article class="g rv"><div class="ico">◎</div><h3>AI &amp; YOLO Development</h3><p>Custom object-detection workflows, model training support and computer-vision applications.</p></article>
+<article class="g rv"><div class="ico">▦</div><h3>Data Labeling</h3><p>Image annotation and dataset preparation to support computer-vision model development.</p></article>
+</div></div></section>
 
-    <section class="section" id="services"><div class="wrap">
-      <div class="section-head"><div><div class="kicker">What I can help with</div><h2>Development support for your next project.</h2></div><p>Flexible project-based support for agencies that need an additional development resource without adding a full-time hire.</p></div>
-      <div class="grid">
-        <article class="service"><div class="service-icon">⌘</div><h3>Website Development</h3><p>Responsive business websites, product pages, landing pages and front-end implementation.</p></article>
-        <article class="service"><div class="service-icon">{ }</div><h3>Python Development</h3><p>Python-based applications, automation, dashboards and web application development.</p></article>
-        <article class="service"><div class="service-icon">◎</div><h3>AI & YOLO Development</h3><p>Custom object-detection workflows, model training support and computer-vision applications.</p></article>
-        <article class="service"><div class="service-icon">▦</div><h3>Data Labeling</h3><p>Image annotation and dataset preparation to support computer-vision model development.</p></article>
-      </div>
-    </div></section>
+<section class="sec" id="work"><div class="wrap">
+<div class="head rv"><div><div class="k">Selected work</div><h2>Practical work across web and industrial AI.</h2></div><p>Recent projects I have developed. Project links open the live websites.</p></div>
+<div class="grid">
+<article class="g pr rv"><div class="shot"><img loading="lazy" src="images/ims.jpg" data-fallbacks="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.anandims.in%2F?w=1200&h=750|https://image.thum.io/get/width/1200/crop/750/https://www.anandims.in/" alt="Screenshot of Anand Information Management System" onerror="imgFallback(this)"></div><div class="pb"><div class="top2"><span class="tag">Management system</span><span class="live">Live</span></div><h3>Anand Information Management System</h3><p>A management platform I recently developed to bring HR, attendance, sales, production, expenses and task management into one system.</p><div class="role"><b>Built by me</b>Recent project, designed and developed by me.</div><a class="lnk" href="https://www.anandims.in/" target="_blank" rel="noopener">Visit project ↗</a></div></article>
+<article class="g pr rv"><div class="shot"><img loading="lazy" src="images/website.jpg" data-fallbacks="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.anandcontrol.in%2F?w=1200&h=750|https://image.thum.io/get/width/1200/crop/750/https://www.anandcontrol.in/" alt="Screenshot of Anand Systems Engineering website" onerror="imgFallback(this)"></div><div class="pb"><div class="top2"><span class="tag">Business website</span><span class="live">Live</span></div><h3>Anand Systems Engineering</h3><p>An industrial product website I recently developed, presenting EOT crane components, product categories, technical information and AI solutions.</p><div class="role"><b>Built by me</b>Recent project, designed and developed by me.</div><a class="lnk" href="https://www.anandcontrol.in/" target="_blank" rel="noopener">Visit website ↗</a></div></article>
+<article class="g pr rv"><div class="shot"><img loading="lazy" src="images/detection-img.jpeg" data-fallbacks="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.anandims.in%2Fanandcraneai%2F?w=1200&h=750|https://image.thum.io/get/width/1200/crop/750/https://www.anandims.in/anandcraneai/" alt="Crane AI Monitoring project" onerror="imgFallback(this)"></div><div class="pb"><div class="top2"><span class="tag">Industrial AI</span><span class="live">Live</span></div><h3>Crane AI Monitoring</h3><p>An AI-based crane safety and monitoring system I recently developed, including human detection and rail-track defect detection.</p><div class="role"><b>Built by me</b>Recent project, designed and developed by me.</div><a class="lnk" href="https://www.anandims.in/anandcraneai/#human-history" target="_blank" rel="noopener">Open AI project ↗</a></div></article>
+<article class="g pr rv"><div class="shot pf"><img loading="lazy" src="images/dhanveer-img.jpeg" data-fallbacks="https://github.com/dhanveeryadav-max.png?size=600" alt="GitHub profile of Dhanveer Yadav" onerror="imgFallback(this)"></div><div class="pb"><div class="top2"><span class="tag">Code profile</span><span class="live">Public</span></div><h3>GitHub — Dhanveer Yadav</h3><p>My programming profile, with public repositories and examples of Python, web and AI development.</p><div class="role"><b>Personal</b>All code and repositories here are my own work.</div><a class="lnk" href="https://github.com/dhanveeryadav-max" target="_blank" rel="noopener">View GitHub ↗</a></div></article>
+</div>
+<div class="note rv"><strong>About these projects:</strong> These are recent projects developed by me. Company names, logos and brands shown belong to their respective owners.</div>
+</div></section>
 
-    <section class="section" id="work"><div class="wrap">
-      <div class="section-head"><div><div class="kicker">Selected work</div><h2>Practical work across web and industrial AI.</h2></div><p>Recent projects I have developed. Project links open the live websites.</p></div>
-      <div class="grid">
-        <article class="project"><div class="shot"><img loading="lazy" src="images/ims.jpg" data-fallbacks="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.anandims.in%2F?w=1200&h=750|https://image.thum.io/get/width/1200/crop/750/https://www.anandims.in/" alt="Screenshot of Anand Information Management System" onerror="imgFallback(this)"></div><div class="pbody"><div class="project-top"><span class="tag">Management system</span><span>01 / 04</span></div><h3>Anand Information Management System</h3><p>A management platform I recently developed to bring HR, attendance, sales, production, expenses and task management into one system.</p><div class="role"><b>Built by me</b>Recent project, designed and developed by me.</div><a class="project-link" href="https://www.anandims.in/" target="_blank" rel="noopener">Visit project ↗</a></div></article>
-        <article class="project"><div class="shot"><img loading="lazy" src="images/website.jpg" data-fallbacks="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.anandcontrol.in%2F?w=1200&h=750|https://image.thum.io/get/width/1200/crop/750/https://www.anandcontrol.in/" alt="Screenshot of Anand Systems Engineering website" onerror="imgFallback(this)"></div><div class="pbody"><div class="project-top"><span class="tag">Business website</span><span>02 / 04</span></div><h3>Anand Systems Engineering</h3><p>An industrial product website I recently developed, presenting EOT crane components, product categories, technical information and AI solutions.</p><div class="role"><b>Built by me</b>Recent project, designed and developed by me.</div><a class="project-link" href="https://www.anandcontrol.in/" target="_blank" rel="noopener">Visit website ↗</a></div></article>
-        <article class="project"><div class="shot"><img loading="lazy" src="images/detection-img.jpeg" data-fallbacks="https://s0.wp.com/mshots/v1/https%3A%2F%2Fwww.anandims.in%2Fanandcraneai%2F?w=1200&h=750|https://image.thum.io/get/width/1200/crop/750/https://www.anandims.in/anandcraneai/" alt="Screenshot of Crane AI Monitoring project" onerror="imgFallback(this)"></div><div class="pbody"><div class="project-top"><span class="tag">Industrial AI</span><span>03 / 04</span></div><h3>Crane AI Monitoring</h3><p>An AI-based crane safety and monitoring system I recently developed, including human detection and rail-track defect detection.</p><div class="role"><b>Built by me</b>Recent project, designed and developed by me.</div><a class="project-link" href="https://www.anandims.in/anandcraneai/#human-history" target="_blank" rel="noopener">Open AI project ↗</a></div></article>
-        <article class="project"><div class="shot profile"><img loading="lazy" src="images/dhanveer-img.jpeg" data-fallbacks="https://github.com/dhanveeryadav-max.png?size=600" alt="GitHub profile of Dhanveer Yadav" onerror="imgFallback(this)"></div><div class="pbody"><div class="project-top"><span class="tag">Code profile</span><span>04 / 04</span></div><h3>GitHub — Dhanveer Yadav</h3><p>My programming profile, with public repositories and examples of Python, web and AI development.</p><div class="role"><b>Personal</b>All code and repositories here are my own work.</div><a class="project-link" href="https://github.com/dhanveeryadav-max" target="_blank" rel="noopener">View GitHub ↗</a></div></article>
-      </div>
-      <div class="note"><strong>About these projects:</strong> These are recent projects developed by me. Company names, logos and brands shown belong to their respective owners.</div>
-    </div></section>
+<section class="sec" id="process"><div class="wrap">
+<div class="head rv"><div><div class="k">A clear working process</div><h2>From requirement to delivery.</h2></div><p>Defined scope, realistic timelines and clear communication keep projects predictable.</p></div>
+<div class="steps">
+<article class="g rv"><b>STEP 01</b><h3>Understand</h3><p>Review the requirement, deliverables, technology and constraints.</p></article>
+<article class="g rv"><b>STEP 02</b><h3>Plan</h3><p>Agree on scope, milestones, timeline and project cost before starting.</p></article>
+<article class="g rv"><b>STEP 03</b><h3>Develop</h3><p>Build the agreed solution and share progress at planned checkpoints.</p></article>
+<article class="g rv"><b>STEP 04</b><h3>Deliver</h3><p>Test, resolve agreed feedback and hand over the completed work.</p></article>
+</div></div></section>
 
-    <section class="section" id="process"><div class="wrap">
-      <div class="section-head"><div><div class="kicker">A clear working process</div><h2>From requirement to delivery.</h2></div><p>Defined scope, realistic timelines and clear communication help keep outsourced projects predictable.</p></div>
-      <div class="steps">
-        <article class="step"><b>STEP 01</b><h3>Understand</h3><p>Review the requirement, deliverables, technology and constraints.</p></article>
-        <article class="step"><b>STEP 02</b><h3>Plan</h3><p>Agree on scope, milestones, timeline and project cost before starting.</p></article>
-        <article class="step"><b>STEP 03</b><h3>Develop</h3><p>Build the agreed solution and share progress updates at planned checkpoints.</p></article>
-        <article class="step"><b>STEP 04</b><h3>Deliver</h3><p>Test, resolve agreed feedback and hand over the completed work.</p></article>
-      </div>
-    </div></section>
+<section class="sec" id="about"><div class="wrap about">
+<div class="rv"><div class="k">About</div><h2>A practical development partner for growing teams.</h2><p>I'm Dhanveer Yadav, a developer working across web development, Python and AI-based computer-vision projects. I enjoy solving practical business and industrial problems through software.</p><p>I'm open to project-based collaboration with software agencies and businesses that need dependable development support.</p><a class="textlink" href="https://www.linkedin.com/in/dhanveer-yadav-480396228/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a></div>
+<aside class="av rv"><h3>Working arrangement</h3><div class="row"><span>Monday – Saturday</span><span>Evenings · 2–3 hrs</span></div><div class="row"><span>Sunday</span><span>Flexible project time</span></div><div class="row"><span>Engagement</span><span>Project-based</span></div><div class="row"><span>Collaboration</span><span>Remote</span></div></aside>
+</div></section>
 
-    <section class="section" id="about"><div class="wrap about">
-      <div><div class="kicker">About</div><h2>A practical development partner for growing teams.</h2><p>I'm Dhanveer Yadav, a developer working across web development, Python and AI-based computer-vision projects. I enjoy solving practical business and industrial problems through software.</p><p>I'm open to project-based collaboration with software agencies and businesses that need dependable development support.</p><a class="textlink" href="https://www.linkedin.com/in/dhanveer-yadav-480396228/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a></div>
-      <aside class="availability"><h3>Working arrangement</h3><div class="availability-row"><span>Monday – Saturday</span><span>Evenings · 2–3 hrs</span></div><div class="availability-row"><span>Sunday</span><span>Flexible project time</span></div><div class="availability-row"><span>Engagement</span><span>Project-based</span></div><div class="availability-row"><span>Collaboration</span><span>Remote</span></div></aside>
-    </div></section>
-
-    <section class="section" id="contact"><div class="wrap"><div class="contact"><div><div class="kicker">Have a requirement?</div><h2>Let's discuss how I can support your team.</h2><p>Share your project scope, expected timeline and technology requirements. We can review the fit and agree on the next steps.</p></div><a class="btn primary" href="https://www.linkedin.com/in/dhanveer-yadav-480396228/" target="_blank" rel="noopener">Start a conversation ↗</a></div>
-      <form class="form" id="contactForm" novalidate>
-        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="row">
-          <label>Name<input name="name" required minlength="2" maxlength="80" autocomplete="name"></label>
-          <label>Email<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
-        </div>
-        <label>Mobile number<input name="phone" type="tel" required inputmode="tel" maxlength="20" autocomplete="tel" placeholder="98765 43210"></label>
-        <label>Message<textarea name="message" required minlength="10" maxlength="2000" placeholder="Tell me about your project, timeline and technology."></textarea></label>
-        <button class="btn primary" type="submit">Send message</button>
-        <p class="form-status" id="formStatus" role="status"></p>
-      </form>
-    </div></section>
-  </main>
-  <footer class="wrap footer"><div>© <span id="year"></span> Dhanveer Yadav. All rights reserved.</div><div><a href="https://github.com/dhanveeryadav-max" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/dhanveer-yadav-480396228/" target="_blank" rel="noopener">LinkedIn</a></div></footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const menuBtn = document.getElementById('menuBtn');
-    const navlinks = document.getElementById('navlinks');
-    menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
-    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navlinks.classList.remove('open')));
-    // Remember where the visitor came from (?utm_source=instagram etc.)
-    function getSource() {
-      const q = new URLSearchParams(location.search);
-      let src = q.get('utm_source') || '', camp = q.get('utm_campaign') || '';
-      try {
-        if (src) { sessionStorage.setItem('utm_source', src); sessionStorage.setItem('utm_campaign', camp); }
-        else { src = sessionStorage.getItem('utm_source') || ''; camp = sessionStorage.getItem('utm_campaign') || ''; }
-      } catch (e) {}
-      return { source: src, campaign: camp };
-    }
-    // Image fallback chain: your own file -> auto screenshot -> hide
-    function imgFallback(img) {
-      const list = (img.dataset.fallbacks || '').split('|').filter(Boolean);
-      const next = list.shift();
-      if (!next) { img.remove(); return; }
-      img.dataset.fallbacks = list.join('|');
-      img.src = next;
-    }
-    const API_BASE = window.API_BASE || ''; // set to your backend URL if the site is hosted separately
-    const form = document.getElementById('contactForm');
-    const statusEl = document.getElementById('formStatus');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button');
-      const payload = Object.assign(Object.fromEntries(new FormData(form)), getSource());
-      statusEl.className = 'form-status'; statusEl.textContent = '';
-      btn.disabled = true;
-      try {
-        const res = await fetch(API_BASE + '/api/contact', {
-          method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)
-        });
-        const data = await res.json().catch(() => ({}));
-        if (res.ok && data.ok) {
-          form.reset(); statusEl.className = 'form-status ok';
-          statusEl.textContent = 'Thank you! Your message has been sent. I will reply soon.';
-        } else {
-          statusEl.className = 'form-status err';
-          statusEl.textContent = data.error || Object.values(data.errors || {})[0] || 'Something went wrong. Please try again.';
-        }
-      } catch (err) {
-        statusEl.className = 'form-status err';
-        statusEl.textContent = 'Could not reach the server. Please try again later.';
-      } finally { btn.disabled = false; }
-    });
-  </script>
+<section class="sec" id="contact"><div class="wrap">
+<div class="cta rv"><div><div class="k">Have a requirement?</div><h2>Let's discuss how I can support your team.</h2><p>Share your project scope, expected timeline and technology requirements. We can review the fit and agree on the next steps.</p></div><a class="btn p" href="https://www.linkedin.com/in/dhanveer-yadav-480396228/" target="_blank" rel="noopener">Start a conversation ↗</a></div>
+<form class="form rv" id="form" novalidate>
+<input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="two"><label>Name<input name="name" required minlength="2" maxlength="80" autocomplete="name"></label><label>Email<input name="email" type="email" required maxlength="120" autocomplete="email"></label></div>
+<label>Mobile number<input name="phone" type="tel" required inputmode="tel" maxlength="20" autocomplete="tel" placeholder="98765 43210"></label>
+<label>Message<textarea name="message" required minlength="10" maxlength="2000" placeholder="Tell me about your project, timeline and technology."></textarea></label>
+<button class="btn p" type="submit">Send message</button>
+<p class="priv">🔒 Your details are used only to contact you about your enquiry.</p>
+<p class="fs" id="fs" role="status"></p>
+</form>
+</div></section>
+</main>
+<footer class="wrap foot"><div>© <span id="year"></span> Dhanveer Yadav. All rights reserved.</div><div><a href="https://github.com/dhanveeryadav-max" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/dhanveer-yadav-480396228/" target="_blank" rel="noopener">LinkedIn</a></div></footer>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('#year').textContent=new Date().getFullYear();
+$('#menu').onclick=()=>$('#links').classList.toggle('open');
+$$('#links a').forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
+const bar=$('.bar'),top=$('#top');
+function sc(){const h=document.documentElement,m=h.scrollHeight-h.clientHeight;bar.style.transform='scaleX('+(m>0?h.scrollTop/m:0)+')';top.classList.toggle('s',h.scrollTop>20)}
+addEventListener('scroll',sc,{passive:true});sc();
+// scroll reveal (staggered)
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>{el.style.transitionDelay=(([...el.parentNode.children].indexOf(el))%4*90)+'ms';io.observe(el)});
+// active nav link
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('#links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+$$('section[id]').forEach(s=>so.observe(s));
+// rotating words
+const words=['websites','Python applications','AI-powered solutions'],rot=$('#rot');let wi=0;
+if(!rm)setInterval(()=>{rot.classList.add('o');setTimeout(()=>{wi=(wi+1)%words.length;rot.textContent=words[wi];rot.classList.remove('o')},350)},2600);
+if(!rm&&matchMedia('(hover:hover)').matches){
+ const card=$('#card');
+ card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--ry',((e.clientX-r.left)/r.width-.5)*10+'deg');card.style.setProperty('--rx',(.5-(e.clientY-r.top)/r.height)*8+'deg')});
+ card.addEventListener('pointerleave',()=>{card.style.setProperty('--rx','0deg');card.style.setProperty('--ry','0deg')});
+ $$('.g').forEach(g=>g.addEventListener('pointermove',e=>{const r=g.getBoundingClientRect();g.style.setProperty('--mx',e.clientX-r.left+'px');g.style.setProperty('--my',e.clientY-r.top+'px')}));
+}
+// where the visitor came from (?utm_source=instagram etc.)
+function getSource(){const q=new URLSearchParams(location.search);let s=q.get('utm_source')||'',c=q.get('utm_campaign')||'';
+ try{if(s){sessionStorage.setItem('utm_source',s);sessionStorage.setItem('utm_campaign',c)}else{s=sessionStorage.getItem('utm_source')||'';c=sessionStorage.getItem('utm_campaign')||''}}catch(e){}
+ return{source:s,campaign:c}}
+// image fallback: your file -> screenshot -> hide
+function imgFallback(img){const l=(img.dataset.fallbacks||'').split('|').filter(Boolean),n=l.shift();if(!n){img.remove();return}img.dataset.fallbacks=l.join('|');img.src=n}
+const API_BASE=window.API_BASE||'',form=$('#form'),fs=$('#fs');
+form.addEventListener('submit',async e=>{e.preventDefault();const btn=form.querySelector('button');
+ const payload=Object.assign(Object.fromEntries(new FormData(form)),getSource());
+ fs.className='fs';fs.textContent='';btn.disabled=true;
+ try{const res=await fetch(API_BASE+'/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  const d=await res.json().catch(()=>({}));
+  if(res.ok&&d.ok){form.reset();fs.className='fs ok';fs.textContent='✓ Thank you! Your message has been sent. I will reply soon.'}
+  else{fs.className='fs err';fs.textContent=d.error||Object.values(d.errors||{})[0]||'Something went wrong. Please try again.'}
+ }catch(err){fs.className='fs err';fs.textContent='Could not reach the server. Please try again later.'}
+ finally{btn.disabled=false}});
+</script>
 </body>
 </html>
